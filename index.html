@@ -1,0 +1,225 @@
+<!DOCTYPE html><html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Limits Contact Center</title>
+  <style>
+    :root {
+      --accent: #00aaff;
+      --yellow: #ffc107;
+      --bg: #000000;
+      --fg: #ffffff;
+    }body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg);
+  color: var(--fg);
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  overflow-x: hidden;
+}
+
+.stars {
+  background: transparent url("https://raw.githubusercontent.com/kamranahmedse/night-sky/master/stars.png") repeat top center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  animation: moveStars 100s linear infinite, twinkle 3s ease-in-out infinite;
+}
+
+@keyframes moveStars {
+  0% {background-position: 0 0;}
+  100% {background-position: -10000px 5000px;}
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.5; }
+}
+
+.container {
+  position: relative;
+  max-width: 95%;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 14px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.6);
+  z-index: 1;
+}
+
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  color: var(--yellow);
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.marquee span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 10s linear infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-100%, 0); }
+}
+
+label, input, textarea, button, .btn-link {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  border-radius: 6px;
+}
+
+input, textarea {
+  padding: 0.5rem;
+  border: none;
+}
+
+button {
+  padding: 0.7rem;
+  background: var(--accent);
+  color: white;
+  border: none;
+  font-weight: bold;
+}
+
+.btn-link {
+  padding: 0.6rem;
+  text-align: center;
+  background: #000000;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  animation: blinkTheme 2s infinite;
+}
+
+@keyframes blinkTheme {
+  0%, 100% {
+    background: #000;
+    color: #fff;
+  }
+  50% {
+    background: #fff;
+    color: #000;
+  }
+}
+
+.desc, .why {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ddd;
+  text-align: center;
+}
+
+.why {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.why h3 {
+  color: var(--yellow);
+  text-align: center;
+}
+
+.why ul {
+  padding-left: 1rem;
+}
+
+.reviews {
+  text-align: center;
+  color: var(--yellow);
+  font-weight: bold;
+  margin-top: 1.8rem;
+  font-size: 1.2rem;
+}
+
+.watching {
+  text-align: center;
+  color: #ff4d4d;
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+}
+
+footer {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+  </style>
+</head>
+<body onclick="playGalaxySound()">
+  <div class="stars"></div>
+  <div class="container">
+    <div class="marquee"><span>📞 Welcome to Limits Contact Center · Reach out anytime! 📞</span></div>
+    <form onsubmit="sendEmail(event)">
+      <label for="name">Name</label>
+      <input id="name" type="text" required />
+      <label for="email">Email</label>
+      <input id="email" type="email" required />
+      <label for="message">Message</label>
+      <textarea id="message" rows="4" required></textarea>
+      <button type="submit">Send Email</button>
+    </form>
+    <a class="btn-link" href="https://wa.me/919362425113" target="_blank">💬 Chat on WhatsApp</a>
+    <a class="btn-link" href="https://chat.cxgenie.ai/?aid=42c60f76-1c6b-478b-9416-e3f281f59cce&lang=en" target="_blank">📞 Live Chat Support</a>
+    <div class="desc">I create stunning visuals — logos, QR designs, banners, posters, videos, and more — crafted with creativity and quality.</div>
+    <div class="why">
+      <h3>Why Choose Us</h3>
+      <ul>
+        <li>🎨 Unique, professional designs tailored to your brand</li>
+        <li>⚡ Fast delivery with high attention to detail</li>
+        <li>📱 Specialized in reels, shorts, YouTube & Instagram content</li>
+        <li>🔄 Unlimited revisions until you're satisfied</li>
+        <li>🌟 Trusted by 900+ happy clients worldwide</li>
+      </ul>
+    </div>
+    <div class="reviews">⭐⭐⭐⭐⭐ 900+ Reviews</div>
+    <div class="watching">👁️ <span id="viewer-count">27</span> people currently viewing</div>
+  </div>
+  <footer>© All rights reserved · Limits · 2025</footer>
+  <audio id="galaxy-audio" preload="auto">
+    <source src="https://cdn.pixabay.com/download/audio/2023/03/16/audio_74d42b7c73.mp3?filename=space-ambient-112941.mp3" type="audio/mp3">
+  </audio>
+  <script>
+    function sendEmail(e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+      if (!name || !email || !message) {
+        alert("Please fill in all fields.");
+        return;
+      }
+      window.open(`mailto:kamba12samuel@gmail.com?subject=Message from ${name}&body=${encodeURIComponent(message)}`);
+    }function playGalaxySound() {
+  const audio = document.getElementById("galaxy-audio");
+  if (audio && audio.paused) {
+    audio.volume = 0.3;
+    audio.play().catch(() => {});
+  }
+}
+
+function updateViewerCount() {
+  const count = Math.floor(Math.random() * 46 + 5); // 5 to 50
+  document.getElementById("viewer-count").textContent = count;
+}
+setInterval(updateViewerCount, 4000);
+updateViewerCount();
+
+  </script>
+</body>
+</html>
