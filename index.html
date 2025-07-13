@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Limits Voice AI</title>
+  <script src="https://unpkg.com/@vapi-ai/web"></script>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    button {
+      background: #00ffcc;
+      color: #000;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #00ffcc;
+    }
+    button:hover {
+      background: #00ddaa;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎙️ Talk to Limits Voice Assistant</h1>
+  <button onclick="startAI()">Start Voice Chat</button>
+
+  <script>
+    async function startAI() {
+      const vapi = new Vapi({
+        apiKey: "vapi_live_c218d7763f23f1de60e1b4760d182fdc"
+      });
+
+      await vapi.start({
+        assistant: {
+          firstMessage: "Hello, I'm Limits Voice AI. What would you like to get designed? QR, poster, video, or thumbnail?",
+          model: "gpt-3.5-turbo",
+          voice: "nova",
+          transcription: {
+            provider: "deepgram"
+          },
+          instructions: "You're a friendly assistant that helps users with graphic design services like posters, thumbnails, and QR codes. Respond clearly."
+        }
+      });
+    }
+  </script>
+</body>
+</html>
